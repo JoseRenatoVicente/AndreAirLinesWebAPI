@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AndreAirLines.Domain.Entities.Passageiro" Collapsed="true">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgCABAAAAgAAAAAAAAAAAAAAAAAAAAAGAEAA=</HashCode>
+      <FileName>Entities\Passageiro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndreAirLines.Domain.Entities.Passagem" Collapsed="true">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAABAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Passagem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndreAirLines.Domain.Entities.Voo" Collapsed="true">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAAAAAAAAAAAQAAAAAAAAAAAQAAAAAgAAAAA=</HashCode>
+      <FileName>Entities\Voo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndreAirLines.Domain.Entities.Aeronave" Collapsed="true">
+    <Position X="11" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Entities\Aeronave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndreAirLines.Domain.Entities.Aeroporto" Collapsed="true">
+    <Position X="12" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAEAEAA=</HashCode>
+      <FileName>Entities\Aeroporto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndreAirLines.Domain.Entities.Endereco" Collapsed="true">
+    <Position X="9.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAACAAAAAARAACIAAAAAAACAAAAAAAAAAAAAAAABAAg=</HashCode>
+      <FileName>Entities\Endereco.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

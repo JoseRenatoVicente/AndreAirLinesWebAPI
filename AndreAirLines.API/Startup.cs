@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
 
 namespace AndreAirLines.API
@@ -23,36 +22,33 @@ namespace AndreAirLines.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHealthChecks();
+
             services.ResolveDependencies();
 
             services.AddControllers().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-                options.JsonSerializerOptions.IgnoreNullValues = true;
+                options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
             });
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AndreAirLines.API", Version = "v1" });
-                c.UseInlineDefinitionsForEnums();
-            });
+            services.AddSwaggerConfiguration();
 
             services.AddDbContext<AndreAirLinesAPIContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("AndreAirLinesAPIContext")));
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("AndreAirLinesAPIContext"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AndreAirLinesAPISeed seedingService)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "AndreAirLines.API v1");
+                app.UseSwaggerSetup();
+                seedingService.Seed();
 
-                });
             }
 
             app.UseHttpsRedirection();
@@ -64,6 +60,7 @@ namespace AndreAirLines.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health");
             });
         }
     }
